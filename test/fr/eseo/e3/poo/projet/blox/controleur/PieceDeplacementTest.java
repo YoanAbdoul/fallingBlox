@@ -22,7 +22,7 @@ public class PieceDeplacementTest {
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		
-		vuePuits.getPuits().getPieceActuelle().setPosition(5, 5);
+		vuePuits.getPuits().getPieceActuelle().setPosition(0, 0);
 
 		maFenetre.setSize(15*18,15*20+38);
 		//maFenetre.setResizable(false);

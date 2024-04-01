@@ -82,10 +82,12 @@ public class Puits {
 		{
 			pcs.firePropertyChange(MODIFICATION_PIECE_ACTUELLE, this.pieceActuelle, this.pieceSuivante);
 			this.pieceActuelle = this.pieceSuivante;
+			this.pieceActuelle.setPuits(this);
 			this.pieceSuivante.setPosition(this.largeur/2, -4);
 		}
 		pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, this.pieceSuivante, pieceSuivante);
 		this.pieceSuivante = pieceSuivante;
+		this.pieceSuivante.setPuits(this);
 	}
 	
 	public Tas getTas() {

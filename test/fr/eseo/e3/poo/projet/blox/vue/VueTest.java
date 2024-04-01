@@ -12,6 +12,19 @@ public class VueTest {
 	public static void main(String[] args) {
 		VueTest vueTest = new VueTest();
 		vueTest.parametresFenetre();
+		
+		try {
+			for(int i = 0; i < 10; i++)
+			{
+				if(i > 3)
+				{
+					throw new Exception(""+i);
+				}
+			}
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void nordSudEstOuest()

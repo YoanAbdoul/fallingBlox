@@ -1,5 +1,6 @@
 package fr.eseo.e3.poo.projet.blox.controleur;
 
+import fr.eseo.e3.poo.projet.blox.modele.BloxException;
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
 
@@ -27,11 +28,17 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 			{
 				if(this.colonne < event.getXOnScreen()/this.vuePuits.getTaille())
 				{
-					this.puits.getPieceActuelle().deplacerDe(1, 0);
+					try {
+						this.puits.getPieceActuelle().deplacerDe(1, 0);
+					}
+					catch(BloxException e){}
 				}
 				else
 				{
-					this.puits.getPieceActuelle().deplacerDe(-1, 0);
+					try {
+						this.puits.getPieceActuelle().deplacerDe(-1, 0);
+					}
+					catch(BloxException e){}
 				}
 				this.colonne = event.getXOnScreen()/this.vuePuits.getTaille();
 			}
@@ -50,7 +57,10 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 		{
 			if(event.getWheelRotation() > 0)
 			{
-				this.puits.getPieceActuelle().deplacerDe(0, 1);
+				try {
+					this.puits.getPieceActuelle().deplacerDe(0, 1);
+				}
+				catch(BloxException e){}
 			}
 		}
 	}
