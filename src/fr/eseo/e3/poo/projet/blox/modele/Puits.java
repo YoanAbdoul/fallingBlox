@@ -17,7 +17,9 @@ public class Puits {
 	
 	private java.beans.PropertyChangeSupport pcs;
 	
-	public Puits(int largeur, int profondeur)
+	private Tas tas;
+	
+	public Puits(int largeur, int profondeur, int nbElments, int nbLignes)
 	{
 		if(largeur > 15 || largeur < 5 || profondeur > 25 || profondeur < 15)
 		{
@@ -29,6 +31,13 @@ public class Puits {
 		this.pieceSuivante = null;
 		
 		this.pcs = new java.beans.PropertyChangeSupport(this);
+		
+		this.tas = new Tas(this, nbElments, nbLignes);
+	}
+	
+	public Puits(int largeur, int profondeur)
+	{
+		this(largeur, profondeur, 0, 0);
 	}
 	
 	public Puits()
@@ -77,6 +86,15 @@ public class Puits {
 		}
 		pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, this.pieceSuivante, pieceSuivante);
 		this.pieceSuivante = pieceSuivante;
+	}
+	
+	public Tas getTas() {
+		return this.tas;
+	}
+	
+	public void setTas(Tas tas)
+	{
+		this.tas = tas;
 	}
 	
 	@Override

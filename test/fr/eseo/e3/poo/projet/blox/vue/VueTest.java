@@ -1,12 +1,9 @@
 package fr.eseo.e3.poo.projet.blox.vue;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 // Classe uniquement pour moi et m'habituer à l'utilisation de JFrame
 public class VueTest {

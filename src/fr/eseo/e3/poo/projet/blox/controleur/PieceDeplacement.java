@@ -8,7 +8,6 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 	private Puits puits;
 	
 	private int colonne = -1;
-	private int ligne = -1;
 	
 	public PieceDeplacement(VuePuits vuePuits)
 	{
