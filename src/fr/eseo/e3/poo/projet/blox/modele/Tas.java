@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
+
 public class Tas {
 	private List<Element> elements;
 	private Puits puits;
@@ -73,5 +75,13 @@ public class Tas {
 			i++;
 		}
 		return elementExists;
+	}
+	
+	public void ajouterElements(Piece piece)
+	{
+		for(int i = 0; i < piece.getElements().length; i++)
+		{
+			this.elements.add(piece.getElements()[i]);
+		}
 	}
 }

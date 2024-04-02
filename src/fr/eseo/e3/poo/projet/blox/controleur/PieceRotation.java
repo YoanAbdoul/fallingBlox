@@ -32,5 +32,6 @@ public class PieceRotation extends java.awt.event.MouseAdapter{
 			}
 			catch(BloxException e) {}
 		}
+		this.vuePuits.repaint();
 	}
 }

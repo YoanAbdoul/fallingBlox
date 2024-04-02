@@ -43,6 +43,7 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 				this.colonne = event.getXOnScreen()/this.vuePuits.getTaille();
 			}
 		}
+		this.vuePuits.repaint();
 	}
 	
 	public void mouseEntered(java.awt.event.MouseEvent event)
@@ -60,8 +61,12 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 				try {
 					this.puits.getPieceActuelle().deplacerDe(0, 1);
 				}
-				catch(BloxException e){}
+				catch(BloxException e)
+				{
+					
+				}
 			}
 		}
+		this.vuePuits.repaint();
 	}
 }

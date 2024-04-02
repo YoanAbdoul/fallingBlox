@@ -68,6 +68,7 @@ public abstract class Tetromino implements Piece{
 			throw new IllegalArgumentException("déplacement interdit");
 		}
 		
+		
 		// on regarde si on déplace la pièce vers une position impossible avant de lancer une Exception
 		if(this.puits != null) {
 			for(int i = 0; i < this.elements.length; i++){
@@ -104,6 +105,7 @@ public abstract class Tetromino implements Piece{
 		int abscisseDeBase = this.elements[0].getCoordonnees().getAbscisse();
 		int ordonneeDeBase = this.elements[0].getCoordonnees().getOrdonnee();
 		
+		
 		// on regarde si on déplace la pièce vers une position impossible avant de lancer une Exception
 		int abscisseFutur;
 		int ordonneeFutur;
@@ -138,6 +140,7 @@ public abstract class Tetromino implements Piece{
 				}
 			}
 		}
+		
 		
 		// deplacement vers l'origine
 		this.deplacerDeAdmin(-abscisseDeBase, -ordonneeDeBase);

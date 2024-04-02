@@ -1,5 +1,6 @@
 package fr.eseo.e3.poo.projet.blox.modele;
 
+@SuppressWarnings("serial")
 public class BloxException extends java.lang.Exception{
 	public static final int BLOX_COLLISION = 0;
 	public static final int BLOX_SORTIE_PUITS = 1;

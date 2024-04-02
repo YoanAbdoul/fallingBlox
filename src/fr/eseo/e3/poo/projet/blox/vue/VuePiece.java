@@ -2,7 +2,7 @@ package fr.eseo.e3.poo.projet.blox.vue;
 
 import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
 
-public class VuePiece {
+public class VuePiece{
 	public static final double MULTIPLIER_TEINTE = 0.3; // ]0,1[
 	private final Piece piece;
 	private final int taille;

@@ -6,32 +6,34 @@ import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.UsineDePiece;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
 
-public class PieceRotationTest {
-	public PieceRotationTest() {}
+public class GraviteTest {
+	public GraviteTest() {}
 	
 	public static void main(String[] args) {
-		PieceRotationTest test = new PieceRotationTest();
+		GraviteTest test = new GraviteTest();
 		test.testDeplacement();
 	}
 	
 	public void testDeplacement()
 	{
-		JFrame maFenetre = new JFrame("Rotations");
+		JFrame maFenetre = new JFrame("Gravité");
 		VuePuits vuePuits = new VuePuits(new Puits());
 		
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
-		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		
-		vuePuits.getPuits().getPieceActuelle().setPosition(5, 5);
+		vuePuits.getPuits().getPieceActuelle().setPosition(3, 1);
 
 		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		maFenetre.setSize(15*18,15*20+38);
-		maFenetre.setResizable(false);
+		//maFenetre.setResizable(false);
 		maFenetre.setLocationRelativeTo(null);
 		
 		maFenetre.add(vuePuits);
 		maFenetre.setVisible(true);
+		
+		vuePuits.setGravite(new Gravite(vuePuits));
+		
 	}
 }

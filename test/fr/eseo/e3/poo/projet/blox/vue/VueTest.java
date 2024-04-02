@@ -37,6 +37,8 @@ public class VueTest {
 		maFenetre.add(monEtiquetteE, BorderLayout.EAST);
 		maFenetre.add(monEtiquetteC);
 		
+		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		maFenetre.setVisible(true);
 	}
 	

@@ -1,6 +1,7 @@
 package fr.eseo.e3.poo.projet.blox.modele;
 
 import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
+import fr.eseo.e3.poo.projet.blox.modele.pieces.UsineDePiece;
 
 public class Puits {
 	public static final int LARGEUR_PAR_DEFAUT = 10; 
@@ -35,9 +36,14 @@ public class Puits {
 		this.tas = new Tas(this, nbElments, nbLignes);
 	}
 	
+	public Puits(int largeur, int profondeur, int nbElements)
+	{
+		this(largeur, profondeur, nbElements, nbElements/largeur+1);
+	}
+	
 	public Puits(int largeur, int profondeur)
 	{
-		this(largeur, profondeur, 0, 0);
+		this(largeur, profondeur, 0);
 	}
 	
 	public Puits()
@@ -97,6 +103,23 @@ public class Puits {
 	public void setTas(Tas tas)
 	{
 		this.tas = tas;
+	}
+	
+	private void gererCollision()
+	{
+		this.tas.ajouterElements(pieceActuelle);
+		this.setPieceSuivante(UsineDePiece.genererTetromino());
+	}
+	
+	public void gravite()
+	{
+		try {
+			this.pieceActuelle.deplacerDe(0, 1);
+		}
+		catch(BloxException e)
+		{
+			this.gererCollision();
+		}
 	}
 	
 	@Override

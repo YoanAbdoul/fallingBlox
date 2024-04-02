@@ -24,6 +24,8 @@ public class PieceDeplacementTest {
 		
 		vuePuits.getPuits().getPieceActuelle().setPosition(0, 0);
 
+		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		maFenetre.setSize(15*18,15*20+38);
 		//maFenetre.setResizable(false);
 		maFenetre.setLocationRelativeTo(null);

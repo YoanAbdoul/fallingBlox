@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import fr.eseo.e3.poo.projet.blox.modele.BloxException;
 import fr.eseo.e3.poo.projet.blox.modele.Coordonnees;
 import fr.eseo.e3.poo.projet.blox.modele.Couleur;
 import fr.eseo.e3.poo.projet.blox.modele.Element;
@@ -40,11 +41,14 @@ public class ITetrominoTest {
 		assertEquals(elements[3], itetromino.getElements()[3]);
 	}
 	
+	
 	@Test
 	public void testTournerHoraire()
 	{
 		ITetromino itetromino = new ITetromino(new Coordonnees(5, 5), Couleur.CYAN);
-		itetromino.tourner(true);
+		try {
+			itetromino.tourner(true);
+		} catch (BloxException e) {}
 		Element[] elements = new Element[4];
 		elements[0] = new Element(5, 5, Couleur.CYAN);
 		elements[1] = new Element(4, 5, Couleur.CYAN);
@@ -60,7 +64,9 @@ public class ITetrominoTest {
 	public void testTournerAntiHoraire()
 	{
 		ITetromino itetromino = new ITetromino(new Coordonnees(5, 5), Couleur.CYAN);
-		itetromino.tourner(false);
+		try {
+			itetromino.tourner(false);
+		} catch (BloxException e) {}
 		Element[] elements = new Element[4];
 		elements[0] = new Element(5, 5, Couleur.CYAN);
 		elements[1] = new Element(6, 5, Couleur.CYAN);
@@ -71,4 +77,5 @@ public class ITetrominoTest {
 		assertEquals(elements[2], itetromino.getElements()[2]);
 		assertEquals(elements[3], itetromino.getElements()[3]);
 	}
+	
 }

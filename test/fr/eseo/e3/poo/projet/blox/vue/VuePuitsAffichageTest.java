@@ -23,6 +23,8 @@ public class VuePuitsAffichageTest {
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 
+		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		maFenetre.setSize(15*18,15*20+38);
 		maFenetre.setResizable(false);
 		maFenetre.setLocationRelativeTo(null);
