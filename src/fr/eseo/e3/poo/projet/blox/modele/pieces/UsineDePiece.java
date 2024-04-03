@@ -3,8 +3,13 @@ package fr.eseo.e3.poo.projet.blox.modele.pieces;
 import fr.eseo.e3.poo.projet.blox.modele.Coordonnees;
 import fr.eseo.e3.poo.projet.blox.modele.Couleur;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.ITetromino;
+import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.JTetromino;
+import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.LTetromino;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.OTetromino;
+import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.STetromino;
+import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.TTetromino;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.Tetromino;
+import fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos.ZTetromino;
 
 import java.util.Random;
 
@@ -14,7 +19,7 @@ public class UsineDePiece {
 	public static final int CYCLIC = 2;
 
 	public static final int NOMBRE_COULEUR = 7;
-	public static final int NOMBRE_TYPE_TETROMINO = 2;
+	public static final int NOMBRE_TYPE_TETROMINO = 7;
 	
 	public static final int ABSCISSE_PAR_DEFAUT = 2;
 	public static final int ORDONNEE_PAR_DEFAUT = 3;
@@ -65,6 +70,21 @@ public class UsineDePiece {
 			case 1:
 				tetromino = new ITetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
 				break;
+			case 2:
+				tetromino = new TTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
+				break;
+			case 3:
+				tetromino = new LTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
+				break;
+			case 4:
+				tetromino = new JTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
+				break;
+			case 5:
+				tetromino = new ZTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
+				break;
+			case 6:
+				tetromino = new STetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
+				break;
 			default:
 				tetromino = new OTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
 				break;
@@ -82,6 +102,21 @@ public class UsineDePiece {
 				break;
 			case 1:
 				tetromino = new ITetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.ORANGE);
+				break;
+			case 2:
+				tetromino = new TTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.BLEU);
+				break;
+			case 3:
+				tetromino = new LTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.VERT);
+				break;
+			case 4:
+				tetromino = new JTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.JAUNE);
+				break;
+			case 5:
+				tetromino = new ZTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.CYAN);
+				break;
+			case 6:
+				tetromino = new STetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.VIOLET);
 				break;
 			default:
 				tetromino = new OTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.ROUGE);

@@ -38,7 +38,7 @@ public class Puits {
 	
 	public Puits(int largeur, int profondeur, int nbElements)
 	{
-		this(largeur, profondeur, nbElements, nbElements/largeur+1);
+		this(largeur, profondeur, nbElements, nbElements/(largeur!=0?largeur:1)+1);
 	}
 	
 	public Puits(int largeur, int profondeur)
