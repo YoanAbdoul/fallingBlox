@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
 
+@SuppressWarnings("serial")
 public class PanneauInformation extends javax.swing.JPanel implements java.beans.PropertyChangeListener{
 	private Puits puits;
 	

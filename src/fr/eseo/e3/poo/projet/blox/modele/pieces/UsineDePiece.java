@@ -24,7 +24,7 @@ public class UsineDePiece {
 	public static final int ABSCISSE_PAR_DEFAUT = 2;
 	public static final int ORDONNEE_PAR_DEFAUT = 3;
 	
-	private static int etat = 2;
+	private static int etat = CYCLIC;
 	private static int nombreCycle = 0;
 	
 	private UsineDePiece(){}

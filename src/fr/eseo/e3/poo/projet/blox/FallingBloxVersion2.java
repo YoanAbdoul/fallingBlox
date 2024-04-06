@@ -10,9 +10,9 @@ import fr.eseo.e3.poo.projet.blox.modele.pieces.UsineDePiece;
 import fr.eseo.e3.poo.projet.blox.vue.PanneauInformation;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
 
-public class FallingBloxVersion1 {
+public class FallingBloxVersion2 {
 	public static void main(String[] args) {
-		FallingBloxVersion1 app = new FallingBloxVersion1();
+		FallingBloxVersion2 app = new FallingBloxVersion2();
 		
 		VuePuits vuePuits = app.selectionDuPuits(args);
 		
@@ -50,7 +50,9 @@ public class FallingBloxVersion1 {
 	{
 		PanneauInformation panneauPieceSuivante = new PanneauInformation(vuePuits.getPuits());
 		
-		JFrame maFenetre = new JFrame("Falling Blox");
+		JFrame maFenetre = new JFrame(this.getClass().getSimpleName());
+		
+		UsineDePiece.setMode(UsineDePiece.ALEATOIRE_PIECE);
 		
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());

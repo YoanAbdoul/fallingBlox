@@ -4,7 +4,7 @@ import fr.eseo.e3.poo.projet.blox.modele.Element;
 import fr.eseo.e3.poo.projet.blox.modele.Tas;
 
 public class VueTas {
-	public static final double MULTIPLIER_NUANCE = 0.7; // ]0,1[
+	public static final double MULTIPLIER_NUANCE = 0.4; // ]0,1[
 	
 	private final VuePuits vuePuits;
 	
@@ -30,11 +30,11 @@ public class VueTas {
 		double b = couleur.getBlue();
 		int alpha = couleur.getAlpha();
 		
-		r = r * (1 - MULTIPLIER_NUANCE);
-		g = g * (1 - MULTIPLIER_NUANCE);
-		b = b * (1 - MULTIPLIER_NUANCE);
+		r = (int)( r * (1 - MULTIPLIER_NUANCE));
+		g = (int)(g * (1 - MULTIPLIER_NUANCE));
+		b = (int)(b * (1 - MULTIPLIER_NUANCE));
 		
-		return new java.awt.Color((int) r,(int) g,(int) b, alpha);
+		return new java.awt.Color((int) r,(int) g,(int) b);
 	}
 	
 	public void afficher(java.awt.Graphics2D g2D)

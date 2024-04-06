@@ -5,6 +5,7 @@ import fr.eseo.e3.poo.projet.blox.modele.Coordonnees;
 import fr.eseo.e3.poo.projet.blox.modele.Couleur;
 import fr.eseo.e3.poo.projet.blox.modele.Element;
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
+import fr.eseo.e3.poo.projet.blox.modele.Tas;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
 
 public abstract class Tetromino implements Piece{
@@ -164,5 +165,34 @@ public abstract class Tetromino implements Piece{
 		
 		// retour à la position de base
 		this.deplacerDeAdmin(abscisseDeBase, ordonneeDeBase);
+	}
+	
+	public void deplacerVersLeBas(Tas tas)
+	{
+		boolean peutAllerEnBas = true;
+		int i;
+		int abscisseAChecker;
+		int ordonneeAChecker;
+		while(peutAllerEnBas)
+		{
+			i = 0;
+			while(peutAllerEnBas && i < this.elements.length)
+			{
+				abscisseAChecker = this.elements[i].getCoordonnees().getAbscisse();
+				ordonneeAChecker = this.elements[i].getCoordonnees().getOrdonnee()+1;
+				if(tas.elementExists(abscisseAChecker, ordonneeAChecker)
+				|| ordonneeAChecker >= tas.getPuits().getProfondeur())
+				{
+					peutAllerEnBas = false;
+				}
+				i++;
+			}
+			if(peutAllerEnBas)
+			{
+				try {
+					this.deplacerDe(0, 1);
+				} catch (BloxException e) {}
+			}
+		}
 	}
 }

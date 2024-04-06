@@ -83,5 +83,63 @@ public class Tas {
 		{
 			this.elements.add(piece.getElements()[i]);
 		}
+		
+		// on détruit les lignes créées par l'ajout d'éléments
+		this.destructionDesLignes();
+	}
+	
+	public void destructionDesLignes()
+	{
+		//création d'un tableau d'entier qui va contenir le nombre de blocs qu'il y a à chaque ligne
+		int[] tableauNombreBloc = new int[this.puits.getProfondeur()];
+		int ordonnee;
+		for(int i = 0; i < this.elements.size(); i++)
+		{
+			ordonnee = this.elements.get(i).getCoordonnees().getOrdonnee();
+			tableauNombreBloc[ordonnee]++;
+		}
+		
+		//on regarde quel ligne est complète via le tableau et on la supprime
+		for(int i = 0; i < tableauNombreBloc.length; i++)
+		{
+			if(tableauNombreBloc[i] >= this.puits.getLargeur())
+			{
+				this.supprimerUneLigne(i);
+			}
+		}
+		
+		int newOrdonnee;
+		//puis on décale le tas vers le bas pour toutes les lignes effacées
+		for(int i = 0; i < this.elements.size(); i++)
+		{
+			for(int j = 0; j < tableauNombreBloc.length; j++)
+			{
+				if(tableauNombreBloc[j] >= this.puits.getLargeur()
+				&& this.elements.get(i).getCoordonnees().getOrdonnee() < j)
+				{
+					newOrdonnee = this.elements.get(i).getCoordonnees().getOrdonnee()+1;
+					this.elements.get(i).getCoordonnees().setOrdonnee(newOrdonnee);
+				}
+			}
+		}
+	}
+	
+	public void supprimerUneLigne(int ordonnee)
+	{
+		// retire chaque élément du Tas de l'abscisse passé en paramètres
+		int i = 0;
+		int nombreElements = this.elements.size();
+		while(i < nombreElements)
+		{
+			if(this.elements.get(i).getCoordonnees().getOrdonnee() == ordonnee)
+			{
+				this.elements.remove(i);
+				nombreElements--;
+			}
+			else
+			{
+				i++;
+			}
+		}
 	}
 }

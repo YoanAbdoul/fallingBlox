@@ -1,8 +1,12 @@
 package fr.eseo.e3.poo.projet.blox.controleur;
 
+import javax.swing.SwingUtilities;
+
 import fr.eseo.e3.poo.projet.blox.modele.BloxException;
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
+
+
 
 public class PieceDeplacement extends java.awt.event.MouseAdapter{
 	private VuePuits vuePuits;
@@ -69,4 +73,14 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 		}
 		this.vuePuits.repaint();
 	}
+	
+	public void mouseClicked(java.awt.event.MouseEvent event)
+	{
+		if(SwingUtilities.isMiddleMouseButton(event))
+		{
+			this.puits.getPieceActuelle().deplacerVersLeBas(this.puits.getTas());
+		}
+		this.vuePuits.repaint();
+	}
+	
 }

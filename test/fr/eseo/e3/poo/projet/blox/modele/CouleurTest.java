@@ -1,7 +1,7 @@
 package fr.eseo.e3.poo.projet.blox.modele;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -38,5 +38,11 @@ public class CouleurTest {
 	public void testGetCouleurParDefaut()
 	{
 		assertEquals(Couleur.ROUGE, Couleur.getCouleurParDefaut(), "la couleur par défaut est bien le ROUGE");
+	}
+	
+	@Test
+	public void testEquals1()
+	{
+		assertTrue(Couleur.ROUGE.equals(Couleur.getCouleurParChoix(0)));
 	}
 }

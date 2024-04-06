@@ -3,6 +3,7 @@ package fr.eseo.e3.poo.projet.blox.vue;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import fr.eseo.e3.poo.projet.blox.controleur.Gravite;
@@ -33,7 +34,7 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 	{
 		this.puits = puits;
 		this.taille = taille;
-		
+		this.setBackground(Color.WHITE);
 		// ajuster la taille
 		super.setPreferredSize(new Dimension(this.taille*puits.getLargeur(), this.taille*puits.getProfondeur()));
 		
@@ -119,13 +120,16 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 	{
 		// partie pour pouvoir dessiner
 		super.paintComponent(g);
+				
 		Graphics2D g2D = (Graphics2D)g.create();
+		
+		g2D.setColor(Color.WHITE);
+		g2D.fillRect(0, 0, (int)getPreferredSize().getWidth(),(int) getPreferredSize().getHeight());
 		
 		// partie qui dessine
 		
 		// fond blanc
 		super.setPreferredSize(new Dimension(this.taille*this.puits.getLargeur(), this.taille*this.puits.getProfondeur()));
-		super.setBackground(java.awt.Color.WHITE);
 		
 		// lignes horizontales
 		g2D.setColor(java.awt.Color.LIGHT_GRAY);
