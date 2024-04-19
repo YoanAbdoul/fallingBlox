@@ -34,7 +34,7 @@ public class UsineDePieceTest {
 	
 	
 	@Test
-	public void testGenererAleatoirePiece()
+	public void testGenererAleatoirePiece1()
 	{
 		UsineDePiece.setMode(UsineDePiece.ALEATOIRE_PIECE);
 		Tetromino piece1 = UsineDePiece.genererTetromino();
@@ -53,6 +53,13 @@ public class UsineDePieceTest {
 		while(!piece4.getClass().getSimpleName().equals("LTetromino"))
 			piece4 = UsineDePiece.genererTetromino();
 		assertEquals(piece4.getElements()[0].getCouleur(), Couleur.VERT);
+		
+		
+	}
+	
+	@Test
+	public void testGenererAleatoirePiece2()
+	{
 		Tetromino piece5 = UsineDePiece.genererTetromino();
 		while(!piece5.getClass().getSimpleName().equals("JTetromino"))
 			piece5 = UsineDePiece.genererTetromino();
@@ -65,11 +72,10 @@ public class UsineDePieceTest {
 		while(!piece7.getClass().getSimpleName().equals("STetromino"))
 			piece7 = UsineDePiece.genererTetromino();
 		assertEquals(piece7.getElements()[0].getCouleur(), Couleur.VIOLET);
-		
 	}
 	
 	@Test
-	public void testGenererAleatoireComplet()
+	public void testGenererAleatoireComplet1()
 	{
 		// le but est de passer par chaque branche
 		UsineDePiece.setMode(UsineDePiece.ALEATOIRE_COMPLET);
@@ -89,6 +95,12 @@ public class UsineDePieceTest {
 		while(!piece4.getClass().getSimpleName().equals("LTetromino"))
 			piece4 = UsineDePiece.genererTetromino();
 		assertNotNull(piece4);
+		
+	}
+	
+	@Test
+	public void testGenererAleatoireComplet2()
+	{
 		Tetromino piece5 = UsineDePiece.genererTetromino();
 		while(!piece5.getClass().getSimpleName().equals("JTetromino"))
 			piece5 = UsineDePiece.genererTetromino();
@@ -101,7 +113,6 @@ public class UsineDePieceTest {
 		while(!piece7.getClass().getSimpleName().equals("STetromino"))
 			piece7 = UsineDePiece.genererTetromino();
 		assertNotNull(piece7);
-		
 	}
 	
 }

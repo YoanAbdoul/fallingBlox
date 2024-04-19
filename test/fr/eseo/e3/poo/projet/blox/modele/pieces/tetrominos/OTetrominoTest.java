@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import fr.eseo.e3.poo.projet.blox.modele.BloxException;
 import fr.eseo.e3.poo.projet.blox.modele.Coordonnees;
 import fr.eseo.e3.poo.projet.blox.modele.Couleur;
 import fr.eseo.e3.poo.projet.blox.modele.Element;
@@ -65,5 +66,18 @@ public class OTetrominoTest {
 			for(int j = 0; j < 2; j++)
 				chaine += "\t("+(6+j)+", "+(5-i)+") - CYAN\n";
 		assertEquals(otetromino.toString(),chaine);
+	}
+	
+	@Test
+	public void testTourner()
+	{
+		Tetromino otetromino = new OTetromino(new Coordonnees(6,5), Couleur.CYAN);
+		try {
+			otetromino.tourner(false);
+			otetromino.tourner(false);
+			otetromino.tourner(true);
+		}
+		catch(BloxException e){}
+		assertEquals(new Coordonnees(6, 5), otetromino.getElements()[0].getCoordonnees(), "OTetromino ne tourne pas");
 	}
 }

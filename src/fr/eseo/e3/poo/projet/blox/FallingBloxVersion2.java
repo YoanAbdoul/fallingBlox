@@ -1,7 +1,6 @@
 package fr.eseo.e3.poo.projet.blox;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 
 import fr.eseo.e3.poo.projet.blox.controleur.Gravite;
@@ -52,6 +51,8 @@ public class FallingBloxVersion2 {
 		
 		JFrame maFenetre = new JFrame(this.getClass().getSimpleName());
 		
+		
+		
 		UsineDePiece.setMode(UsineDePiece.ALEATOIRE_PIECE);
 		
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
@@ -64,11 +65,17 @@ public class FallingBloxVersion2 {
 		//maFenetre.setSize(15*18,15*20+38);
 		maFenetre.setSize(20*18,20*20+38);
 		
+		
 		maFenetre.setResizable(false);
 		maFenetre.setLocationRelativeTo(null);
 		
 		maFenetre.add(vuePuits);
 		maFenetre.add(panneauPieceSuivante, BorderLayout.EAST);
+		
+		vuePuits.setFocusable(true);
+		
+		maFenetre.requestFocus();
+		
 		maFenetre.setVisible(true);
 	}
 }

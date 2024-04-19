@@ -19,7 +19,7 @@ public class Puits {
 	private java.beans.PropertyChangeSupport pcs;
 	
 	private Tas tas;
-	
+	 
 	public Puits(int largeur, int profondeur, int nbElments, int nbLignes)
 	{
 		if(largeur > 15 || largeur < 5 || profondeur > 25 || profondeur < 15)
@@ -109,6 +109,7 @@ public class Puits {
 	{
 		this.tas.ajouterElements(pieceActuelle);
 		this.setPieceSuivante(UsineDePiece.genererTetromino());
+		
 	}
 	
 	public void gravite()
@@ -120,12 +121,35 @@ public class Puits {
 		{
 			this.gererCollision();
 		}
+		
+	}
+	
+	public void changementPieces()
+	{
+		// vérifie si le changement est possible
+		int abscisse = this.pieceActuelle.getElements()[0].getCoordonnees().getAbscisse();
+		int ordonnee = this.pieceActuelle.getElements()[0].getCoordonnees().getOrdonnee();
+		boolean changementPossible = this.pieceSuivante.deplacementPossible(abscisse, ordonnee);
+		
+		// changement de pièces
+		if(changementPossible)
+		{
+			pcs.firePropertyChange(MODIFICATION_PIECE_ACTUELLE, this.pieceActuelle, this.pieceSuivante);
+			pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, this.pieceSuivante, this.pieceActuelle);
+			Piece temp = this.pieceActuelle;
+			this.pieceActuelle = this.pieceSuivante;
+			this.pieceSuivante = temp;
+			
+			// réajustement des positions
+			this.pieceActuelle.setPosition(abscisse, ordonnee);
+			this.pieceSuivante.setPosition(2, 3);
+		}
 	}
 	
 	@Override
 	public String toString()
 	{
-		String chaine = "Puits : Dimension "+this.largeur+" x "+15+"\n";
+		String chaine = "Puits : Dimension "+this.largeur+" x "+this.profondeur+"\n";
 		if(this.pieceActuelle == null)
 		{
 			chaine += "Piece Actuelle : <aucune>\n";

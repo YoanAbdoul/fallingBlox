@@ -10,11 +10,17 @@ public class Tas {
 	private List<Element> elements;
 	private Puits puits;
 	
+	private java.beans.PropertyChangeSupport pcs;
+	
+	public static final String DESTRUCTION_LIGNE = "ligne détruite";
+	
 	public Tas(Puits puits, int nbElements, int nbLignes, Random rand)
 	{
 		this.puits = puits;
 		this.elements = new ArrayList<Element>();
 		this.construireTas(nbElements, nbLignes, rand);
+		
+		this.pcs = new java.beans.PropertyChangeSupport(this);
 	}
 	
 	public Tas(Puits puits, int nbElements, int nbLignes)
@@ -47,7 +53,7 @@ public class Tas {
 			throw new IllegalArgumentException("tas impossible à générer");
 		}
 		int nbElementPlaces = 0;
-		while(nbElementPlaces < nbElements)
+		while(nbElementPlaces < nbElements) 
 		{
 			int ordonnee = this.puits.getProfondeur() - (rand.nextInt(nbLignes)+1);
 			int abscisse = rand.nextInt(this.puits.getLargeur());
@@ -56,7 +62,7 @@ public class Tas {
 				int indiceCouleur = rand.nextInt(Couleur.values().length);
 				this.elements.add(new Element(abscisse, ordonnee, Couleur.getCouleurParChoix(indiceCouleur)));
 				nbElementPlaces++;
-			}
+			} 
 		}
 	}
 	
@@ -100,16 +106,24 @@ public class Tas {
 		}
 		
 		//on regarde quel ligne est complète via le tableau et on la supprime
+		int nombreLignesDetruites = 0;
 		for(int i = 0; i < tableauNombreBloc.length; i++)
 		{
 			if(tableauNombreBloc[i] >= this.puits.getLargeur())
 			{
 				this.supprimerUneLigne(i);
+				nombreLignesDetruites++;
+				this.pcs.firePropertyChange(DESTRUCTION_LIGNE, 0, nombreLignesDetruites);
 			}
 		}
 		
-		int newOrdonnee;
 		//puis on décale le tas vers le bas pour toutes les lignes effacées
+		this.decalerVersLeBas(tableauNombreBloc);
+	}
+	
+	private void decalerVersLeBas(int[] tableauNombreBloc)
+	{
+		int newOrdonnee;
 		for(int i = 0; i < this.elements.size(); i++)
 		{
 			for(int j = 0; j < tableauNombreBloc.length; j++)
@@ -141,5 +155,15 @@ public class Tas {
 				i++;
 			}
 		}
+	}
+	
+	public void addPropertyChangeListener(java.beans.PropertyChangeListener listener)
+	{
+		pcs.addPropertyChangeListener(listener);
+	}
+	
+	public void removePropertyChangeListener(java.beans.PropertyChangeListener listener)
+	{
+		pcs.removePropertyChangeListener(listener);
 	}
 }

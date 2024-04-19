@@ -82,14 +82,11 @@ public class UsineDePiece {
 			case 5:
 				tetromino = new ZTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
 				break;
-			case 6:
+			default:
 				tetromino = new STetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
 				break;
-			default:
-				tetromino = new OTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), couleur);
-				break;
 		}
-		return tetromino;
+		return tetromino; 
 	}
 	
 	private static Tetromino choisirTetromino(int choix)
@@ -115,11 +112,8 @@ public class UsineDePiece {
 			case 5:
 				tetromino = new ZTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.CYAN);
 				break;
-			case 6:
-				tetromino = new STetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.VIOLET);
-				break;
 			default:
-				tetromino = new OTetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.ROUGE);
+				tetromino = new STetromino(new Coordonnees(ABSCISSE_PAR_DEFAUT, ORDONNEE_PAR_DEFAUT), Couleur.VIOLET);
 				break;
 		}
 		return tetromino;

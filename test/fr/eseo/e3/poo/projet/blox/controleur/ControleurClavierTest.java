@@ -6,15 +6,15 @@ import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.UsineDePiece;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
 
-public class GraviteTest {
-	public GraviteTest() {}
+public class ControleurClavierTest {
+	public ControleurClavierTest() {}
 	
 	public static void main(String[] args) {
-		GraviteTest test = new GraviteTest();
-		test.testGravite();
+		ControleurClavierTest test = new ControleurClavierTest();
+		test.testControleurClavier();
 	}
 	
-	public void testGravite()
+	public void testControleurClavier()
 	{
 		JFrame maFenetre = new JFrame("Gravité");
 		VuePuits vuePuits = new VuePuits(new Puits());
@@ -33,7 +33,11 @@ public class GraviteTest {
 		maFenetre.add(vuePuits);
 		maFenetre.setVisible(true);
 		
-		vuePuits.setGravite(new Gravite(vuePuits));
+		//maFenetre.addKeyListener(new ControleurClavier());
+		vuePuits.setFocusable(true);
+		vuePuits.addKeyListener(new ControleurClavier(vuePuits));
+		
+		//vuePuits.setGravite(new Gravite(vuePuits));
 		
 	}
 }

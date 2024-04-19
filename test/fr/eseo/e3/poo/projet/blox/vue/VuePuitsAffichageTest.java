@@ -22,6 +22,8 @@ public class VuePuitsAffichageTest {
 		
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
+		
+		vuePuits.repaint();
 
 		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -41,6 +43,8 @@ public class VuePuitsAffichageTest {
 		
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
 		vuePuits.getPuits().setPieceSuivante(UsineDePiece.genererTetromino());
+		
+		vuePuits.repaint();
 		
 		
 		

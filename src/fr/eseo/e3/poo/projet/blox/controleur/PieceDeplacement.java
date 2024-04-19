@@ -6,8 +6,6 @@ import fr.eseo.e3.poo.projet.blox.modele.BloxException;
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
 
-
-
 public class PieceDeplacement extends java.awt.event.MouseAdapter{
 	private VuePuits vuePuits;
 	private Puits puits;
@@ -22,7 +20,7 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 	
 	public void mouseMoved(java.awt.event.MouseEvent event)
 	{
-		if(!(this.puits.getPieceActuelle() == null))
+		if(this.puits.getPieceActuelle() != null)
 		{
 			if(this.colonne == -1)
 			{
@@ -62,6 +60,8 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 		{
 			if(event.getWheelRotation() > 0)
 			{
+				this.puits.gravite();
+				/*
 				try {
 					this.puits.getPieceActuelle().deplacerDe(0, 1);
 				}
@@ -69,18 +69,21 @@ public class PieceDeplacement extends java.awt.event.MouseAdapter{
 				{
 					
 				}
+				*/
 			}
 		}
 		this.vuePuits.repaint();
 	}
 	
+	
 	public void mouseClicked(java.awt.event.MouseEvent event)
 	{
 		if(SwingUtilities.isMiddleMouseButton(event))
 		{
-			this.puits.getPieceActuelle().deplacerVersLeBas(this.puits.getTas());
+			this.puits.getPieceActuelle().deplacerVersLeBas();
 		}
 		this.vuePuits.repaint();
 	}
+	
 	
 }

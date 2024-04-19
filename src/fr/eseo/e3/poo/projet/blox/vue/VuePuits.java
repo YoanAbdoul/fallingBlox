@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import fr.eseo.e3.poo.projet.blox.controleur.ControleurClavier;
 import fr.eseo.e3.poo.projet.blox.controleur.Gravite;
 import fr.eseo.e3.poo.projet.blox.controleur.PieceDeplacement;
 import fr.eseo.e3.poo.projet.blox.controleur.PieceRotation;
@@ -26,6 +27,8 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 	private PieceDeplacement pieceDeplacement;
 	private PieceRotation pieceRotation;
 	private Gravite gravite;
+	
+	private ControleurClavier controleurClavier;
 
 	public static final String MODIFICATION_PIECE_ACTUELLE = "modification pièce actuelle";
 	public static final String MODIFICATION_PIECE_SUIVANTE = "modification pièce suivante";
@@ -34,7 +37,7 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 	{
 		this.puits = puits;
 		this.taille = taille;
-		this.setBackground(Color.WHITE);
+		this.setBackground(Color.WHITE); 
 		// ajuster la taille
 		super.setPreferredSize(new Dimension(this.taille*puits.getLargeur(), this.taille*puits.getProfondeur()));
 		
@@ -50,6 +53,8 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 		this.pieceRotation = new PieceRotation(this);
 		this.addMouseListener(this.pieceRotation);
 		this.gravite = null;
+		this.controleurClavier = new ControleurClavier(this);
+		this.addKeyListener(this.controleurClavier);
 	}
 	
 	public VuePuits(Puits puits)
@@ -77,18 +82,21 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 		this.removeMouseMotionListener(this.pieceDeplacement);
 		this.removeMouseWheelListener(this.pieceDeplacement);
 		this.removeMouseListener(this.pieceRotation);
+		this.removeKeyListener(this.controleurClavier);
 		
 		// changer de puits
 		this.puits = puits;
 		
 		// remettre les événements à jour avec le nouveau puits
 		this.puits.addPropertyChangeListener(this);
-		this.pieceDeplacement = new PieceDeplacement(this);
+		this.pieceDeplacement = new PieceDeplacement(this); 
 		this.addMouseListener(this.pieceDeplacement);
 		this.addMouseMotionListener(this.pieceDeplacement);
 		this.addMouseWheelListener(this.pieceDeplacement);
 		this.pieceRotation = new PieceRotation(this);
-		this.addMouseListener(this.pieceRotation);
+		this.addMouseListener(this.pieceRotation); 
+		this.controleurClavier = new ControleurClavier(this);
+		this.addKeyListener(this.controleurClavier);
 		
 		// actualiser la taille
 		super.setPreferredSize(new Dimension(this.taille*this.puits.getLargeur(), this.taille*this.puits.getProfondeur()));
@@ -102,8 +110,8 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 		this.vuePiece = vuePiece;
 	}
 	
-	public VuePiece getVueTas() {
-		return vuePiece;
+	public VueTas getVueTas() {
+		return vueTas;
 	}
 	
 	public Gravite getGravite() 
@@ -147,7 +155,7 @@ public class VuePuits extends JPanel implements java.beans.PropertyChangeListene
 		// dessiner la VuePiece
 		if(this.vuePiece != null)
 		{
-			this.vuePiece.afficherPiece(g2D);
+			this.vuePiece.afficherPiecePlusFantome(g2D);
 		}
 		
 		// dessiner la VueTas

@@ -12,7 +12,7 @@ public class Gravite implements java.awt.event.ActionListener{
 	
 	public static final int PERIODICITE_PAR_DEFAUT = 2000; // 2s
 	private int periodicite;
-	
+		
 	public Gravite(VuePuits vuePuits)
 	{
 		this.vuePuits = vuePuits;

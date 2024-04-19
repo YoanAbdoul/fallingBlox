@@ -1,30 +1,19 @@
 package fr.eseo.e3.poo.projet.blox.vue;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 // Classe uniquement pour moi et m'habituer à l'utilisation de JFrame
 public class VueTest {
 	public VueTest() {}
 	
 	public static void main(String[] args) {
-		VueTest vueTest = new VueTest();
-		vueTest.parametresFenetre();
-		
-		try {
-			for(int i = 0; i < 10; i++)
-			{
-				if(i > 3)
-				{
-					throw new Exception(""+i);
-				}
-			}
-		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
-		}
+		VueTest.testFocus();
 	}
 	
 	public void nordSudEstOuest()
@@ -58,5 +47,28 @@ public class VueTest {
 		
 		// affiche la fenetre
 		maFenetre.setVisible(true);
+	}
+	
+	public static void testFocus()
+	{
+		JFrame frame = new JFrame("KeyPress Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+        
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        
+        panel.setFocusable(true); // Permet à notre panel de recevoir le focus pour écouter les événements de clavier
+        
+        panel.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent event) {
+                System.out.println("Touche Escape pressée !");
+            }
+        });
+        
+        //frame.requestFocus();
+        
+        frame.setVisible(true);
 	}
 }

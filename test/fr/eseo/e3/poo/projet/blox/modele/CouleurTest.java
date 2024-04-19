@@ -45,4 +45,13 @@ public class CouleurTest {
 	{
 		assertTrue(Couleur.ROUGE.equals(Couleur.getCouleurParChoix(0)));
 	}
+	
+	@Test
+	public void testBlague()
+	{
+		for(int i = 0; i < 100; i++)
+		{
+			assertEquals(Couleur.ROUGE.getCouleurPourAffichage(),java.awt.Color.RED);
+		}
+	}
 }

@@ -19,7 +19,7 @@ public class VueTas {
 	}
 	
 	public VueTas(VuePuits vuePuits)
-	{
+	{ 
 		this(vuePuits, vuePuits.getTaille());
 	}
 	
@@ -28,7 +28,6 @@ public class VueTas {
 		double r = couleur.getRed();
 		double g = couleur.getGreen();
 		double b = couleur.getBlue();
-		int alpha = couleur.getAlpha();
 		
 		r = (int)( r * (1 - MULTIPLIER_NUANCE));
 		g = (int)(g * (1 - MULTIPLIER_NUANCE));

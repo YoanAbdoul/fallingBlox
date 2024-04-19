@@ -2,7 +2,6 @@ package fr.eseo.e3.poo.projet.blox.modele.pieces.tetrominos;
 
 import fr.eseo.e3.poo.projet.blox.modele.Coordonnees;
 import fr.eseo.e3.poo.projet.blox.modele.Couleur;
-import fr.eseo.e3.poo.projet.blox.modele.Tas;
 
 public class ITetromino extends Tetromino{
 	public ITetromino(Coordonnees coordonnees, Couleur couleur)

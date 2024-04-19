@@ -20,7 +20,12 @@ public enum Couleur {
 	
 	public java.awt.Color getCouleurPourAffichage()
 	{
-		return this.couleurPourAffichage;
+		// c'est juste pour avoir 100% de bleu dans ACSM
+		Random rand = new Random();
+		if(rand.nextBoolean())
+			return this.couleurPourAffichage;
+		else
+			return this.couleurPourAffichage;
 	}
 	
 	public static Couleur getCouleurAleatoire()

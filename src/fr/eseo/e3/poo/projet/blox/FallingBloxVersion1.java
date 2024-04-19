@@ -1,7 +1,6 @@
 package fr.eseo.e3.poo.projet.blox;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 
 import fr.eseo.e3.poo.projet.blox.controleur.Gravite;
@@ -17,7 +16,7 @@ public class FallingBloxVersion1 {
 		VuePuits vuePuits = app.selectionDuPuits(args);
 		
 		app.creationFenetre(vuePuits);
-		
+		 
 		vuePuits.setGravite(new Gravite(vuePuits));
 	}
 	
@@ -60,7 +59,7 @@ public class FallingBloxVersion1 {
 		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//maFenetre.setSize(15*18,15*20+38);
-		maFenetre.setSize(20*18,20*20+38);
+		maFenetre.setSize(20*18,20*20+38); 
 		
 		maFenetre.setResizable(false);
 		maFenetre.setLocationRelativeTo(null);
