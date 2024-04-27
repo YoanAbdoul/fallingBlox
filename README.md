@@ -2,6 +2,9 @@
 Dans le cadre de notre apprentissage à l'ESEO, nous devons céer un projet FallingBlox capable de cérer une similaire au jeu indémodable qu'est le Tetris.
 Entièrement en Java, ce projet a pour but de nous familiariser à la programmation orientée object. 
 
+Pour y jouer vous devez disposer d'une version de java 11 ou ultérieure.  
+Il vous suffit de lancer le .bat pour jouer.  
+
 Extensions ajoutées :  
 Ajout des autres Tetrominos  
 Suppression d'une ligne du Tas lorsqu'elle est complète  
