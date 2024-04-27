@@ -10,3 +10,13 @@ Ajout d'un score
 Détection clavier pour pouvoir aussi jouer avec le clavier  
 Ajout d'une possibilité de changement entre la pièce actuelle et la pièce suivante  
 Prévisualisation de l'arrivée de la pièce  
+
+Commandes pour le clavier :  
+Flèche BAS : déplacement vers le bas  
+Flèche GAUCHE : déplacement vers la gauche  
+Flèche DROITE : déplacement vers la droite  
+R : rotation horaire  
+E : rotation anti-horaire  
+Z : changer entre la pièce actuelle et la pièce suivante  
+Espace : faire descendre la pièce vers le bas  
+
