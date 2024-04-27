@@ -279,7 +279,8 @@ public class ITetrominoTest {
 	{
 		Puits puits = new Puits(10, 15);
 		ITetromino itetromino = new ITetromino(new Coordonnees(5, 5), Couleur.CYAN);
-		itetromino.deplacerVersLeBas(puits.getTas());
+		itetromino.setPuits(puits);
+		itetromino.deplacerVersLeBas();
 		String expected = "ITetromino :\n"
 				+"\t(5, 13) - CYAN\n"
 				+"\t(5, 14) - CYAN\n"
@@ -293,7 +294,8 @@ public class ITetrominoTest {
 	{
 		Puits puits = new Puits(10, 15, 39, 4);
 		ITetromino itetromino = new ITetromino(new Coordonnees(5, 5), Couleur.CYAN);
-		itetromino.deplacerVersLeBas(puits.getTas());
+		itetromino.setPuits(puits);
+		itetromino.deplacerVersLeBas();
 	}
 	
 }

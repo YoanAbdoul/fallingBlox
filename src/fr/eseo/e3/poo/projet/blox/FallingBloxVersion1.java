@@ -59,13 +59,17 @@ public class FallingBloxVersion1 {
 		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//maFenetre.setSize(15*18,15*20+38);
-		maFenetre.setSize(20*18,20*20+38); 
+		//maFenetre.setSize(20*18,20*20+38); 
 		
 		maFenetre.setResizable(false);
-		maFenetre.setLocationRelativeTo(null);
 		
 		maFenetre.add(vuePuits);
 		maFenetre.add(panneauPieceSuivante, BorderLayout.EAST);
+		
+		maFenetre.pack();
+		
+		maFenetre.setLocationRelativeTo(null);
+		
 		maFenetre.setVisible(true);
 	}
 }

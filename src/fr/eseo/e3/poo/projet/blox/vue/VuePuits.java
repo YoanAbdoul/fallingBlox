@@ -15,7 +15,7 @@ import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
 
 @SuppressWarnings("serial")
 public class VuePuits extends JPanel implements java.beans.PropertyChangeListener{
-	public static final int TAILLE_PAR_DEFAUT = 15;
+	public static final int TAILLE_PAR_DEFAUT = 40;
 	
 	// Le puits fait du 12 x 20
 	private int taille; // taille d'un bloc

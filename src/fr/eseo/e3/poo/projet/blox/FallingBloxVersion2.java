@@ -63,18 +63,22 @@ public class FallingBloxVersion2 {
 		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//maFenetre.setSize(15*18,15*20+38);
-		maFenetre.setSize(20*18,20*20+38);
+		//maFenetre.setSize(20*18,20*20+38);
 		
 		
-		maFenetre.setResizable(false);
-		maFenetre.setLocationRelativeTo(null);
+		
 		
 		maFenetre.add(vuePuits);
 		maFenetre.add(panneauPieceSuivante, BorderLayout.EAST);
 		
+		maFenetre.pack();
+		
+		maFenetre.setResizable(false);
+		maFenetre.setLocationRelativeTo(null);
+		
 		vuePuits.setFocusable(true);
 		
-		maFenetre.requestFocus();
+		//maFenetre.requestFocus();
 		
 		maFenetre.setVisible(true);
 	}

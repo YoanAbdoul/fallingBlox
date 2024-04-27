@@ -43,9 +43,10 @@ public class PanneauInformation extends javax.swing.JPanel implements java.beans
 			this.vuePiece = new VuePiece((Piece) event.getNewValue(), TAILLE_PAR_DEFAUT);
 			this.repaint();
 		}
-		if(event.getPropertyName().equals(Tas.DESTRUCTION_LIGNE))
+		else if(event.getPropertyName().equals(Tas.DESTRUCTION_LIGNE))
 		{
 			this.score.ajoutAuScore((int) event.getNewValue());
+			this.repaint();
 		}
 	}
 	

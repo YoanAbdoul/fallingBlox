@@ -204,4 +204,11 @@ public class PuitsTest {
 		vuePuits.setPuits(puits2);
 		assertNotEquals(puits1, vuePuits.getPuits(), "On a bien changé de Puits");
 	}
+	
+	@Test
+	public void testChangementPieces()
+	{
+		Puits puits = new Puits();
+		
+	}
 }
